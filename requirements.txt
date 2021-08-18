@@ -1,8 +1,8 @@
 cachelib==0.1.1
 click==7.1.2
 cs50==6.0.2
-Flask==1.1.2
-Flask-Session==0.3.2
+Flask==1.1.4
+Flask-Session==0.4.0
 isort==5.7.0
 itsdangerous==1.1.0
 gunicorn==19.10.0

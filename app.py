@@ -129,6 +129,8 @@ def register():
     if request.method == 'POST':
         if not request.form['name']:
             return render_template('register.html', error='Please enter your name')
+        if not request.form['username']:
+            return render_template('register.html', error='Please enter a username')
         user_lookup = db.execute("SELECT * FROM users WHERE username = ?", request.form['username'])
         if len(user_lookup) > 0:
             return render_template('register.html', error='Username already taken')
@@ -140,11 +142,14 @@ def register():
             if not re.match(r'[A-Za-z0-9\_\-\%\&\@\$\*]', password):
                 return False
             return True
+
         if valid_password(request.form['password']):
             # Insert into users table
             session['username'] = request.form['username']
             db.execute("INSERT INTO users (username, hash, time_created, name) VALUES (?, ?, ?, ?)",
                         request.form['username'], generate_password_hash(request.form['password']), datetime.now().strftime('%Y-%m-%d %H:%M:%S'), request.form['name'])
             return redirect('/')
+        else:
+            return render_template('register.html', error='Invalid password')
     # GET
     return render_template('register.html')

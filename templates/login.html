@@ -5,30 +5,24 @@
 {% endblock %}
 
 {% block main %}
-    <div class='container'>
-        <h1>Log In</h1>
-
+  <div class='container'>
+    <h1>Log In</h1>
     {% if error %}
-        <p class=error><strong>Error:</strong> {{ error }}
+      <p class='error'>Error: {{ error }}</p>
     {% endif %}
-
     <form action='/login' method='post'>
-        <div class='form-group'>
-            <p>Username</p>
-            <input autofocus class='form-control' name='username' placeholder='Username'>
-        </div>
-        <div class='form-group'>
-            <p>Password</p>
-            <input class='form-control' name='password' placeholder='Password' type='password'>
-        </div>
-        <button class='btn-primary' type='submit'>Log In</button>
+      <div class='form-group'>
+        <label for="username">Username</label>
+        <input autofocus class='form-control' name='username' placeholder='Username'>
+      </div>
+      <div class='form-group'>
+        <label for="password">Password</label>
+        <input class='form-control' name='password' placeholder='Password' type='password'>
+      </div>
+      <button type='submit'>Log In</button>
     </form>
-    </div>
-    <br>
-    <div class='container'>
-        <p>Don't have an account yet? Create one <a href='/register'>here</a>.</p>
-    </div>
-
-    <script>
-    </script>
+  </div>
+  <div class='container'>
+    <p>Don't have an account yet? Create one <a href='/register'>here</a>.</p>
+  </div>
 {% endblock %}

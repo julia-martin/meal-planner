@@ -1,193 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html, body, main {
-    height: 100%;
-    background-color:rgb(241, 241, 197)
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 18px;
+  height: 100%;
 }
 
-h1 {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    color:  #036950;
-}
-
-p {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    margin-bottom: 5px;
+#background {
+  background: url('./fruits.jpg') 0 no-repeat;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 a {
-    font-weight: bold;
+  text-decoration: none;
 }
 
-ul.ing-list {
-    margin: 10px;
-    padding: 0;
+h1 {
+  padding: 15px 0;
 }
 
-nav.navbar.navbar-expand-md {
-    color: #020202;
-    background-color: #036950;
+p {
+  margin: 10px 0;
 }
 
-.navbar-brand {
-    font-family: 'Yellowtail', cursive;
-    color: white;
-    font-size: xx-large;
-    margin-left: 20px;
+div.navbar {
+  color: #020202;
+  background-color: #1ecca0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.navbar-brand:hover, .nav-item .nav-link:hover, .subtitle {
-    color: #1ecca0;
+.title {
+  font-family: 'Yellowtail';
+  color: white;
+  font-size: 2rem;
+  margin-left: 20px;
 }
 
 .subtitle {
-    font-family: 'Yellowtail';
-    font-size: 'x-large';
-    color: white;
-    display: block;
-    width: 400px;
-    margin: 0;
-    padding: 0rem 1rem;
-
+  font-family: 'Yellowtail';
+  font-size: 1.2rem;
+  color: white;
+  display: block;
+  margin: 0;
+  padding: 0rem 1rem;
 }
 
-.nav-item {
-    display: block;
-    padding: 0.5rem 1rem;
-    padding-right: 0;
-    padding-left: 0;
+.nav-links {
+  right: 10px;
+  top: 0px;
+  margin-right: 10px;
 }
 
-.nav-item .nav-link {
-    color: lightgray;
+.nav-links li {
+  display: inline-block;
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-left: 0;
 }
 
-.navbar-nav {
-    /* Not working for some reason */
-    float: right;
-    right: 10px;
-    margin-right: 10px;
+.nav-link {
+  color: white;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-main .form-control {
-    display: inline-block;
-    /* Override Bootstrap's 100% width for form controls */
-    width: auto;
+.current_user {
+  color: lightgray;
+}
+
+.title:hover, #logout:hover {
+  color: deeppink;
+}
+
+button {
+  background-color: white;
+  border: 1px solid #1ecca0;;
+  border-radius: 5px;
+  color: #0e7058;
+  font-weight: bold;
+  padding: 10px 40px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #1ecca0;
+  color: white;
+}
+
+.form-control {
+  display: inline-block;
+  margin: 10px;
+  height: 30px;
+  width: 200px;
+  padding: 10px;
 }
 
 main {
-    /* Scroll horizontally as needed */
-    overflow-x: auto;
-    /* Center contents */
-    text-align: center;
-}
-
-svg {
-    display: inline;
-    border: none
-}
-
-div.ingredients {
-    position: absolute;
-    height: 100%;
-    width: 20%;
-    overflow: auto;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(182, 182, 31);;
-}
-
-div#edit-page.ingredients {
-    width: 50%;
-    margin: auto;
-    left: 0;
-}
-
-.ing {
-    background-color: lightyellow;
-    display: block;
-    width: 100%;
-    border: 1px solid green;
-    padding: 2px;
-    margin-top: 5px;
-    margin-right: 5px;
-}
-
-.list-title {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    color: #036950;
-    padding-top: 10px;
-    margin-top: 10px;
-}
-
-b.mealtype {
-    margin-bottom: 15px;
+  /* Scroll horizontally as needed */
+  overflow-x: auto;
+  text-align: center;
+  padding: 20px;
 }
 
 .meals {
-    justify-content: center;
-    left: 0;
-    margin-top: 10px;
-    padding-right: 20%;
+  margin-left: 30px;
+  width: 70%;
 }
 
-.add-item {
-    max-width: 200px;
-    overflow: hidden;
+.day {
+  background-color: lightyellow;
+  border: 3px solid rgb(182, 182, 31);
+  padding: 10px 30px;
+  margin-bottom: 30px;
 }
 
-span.material-icons.delete:hover {
-    cursor: pointer;
+.row {
+  display: flex;
+  justify-content: space-around;
 }
 
-div.day {
-    background-color: lightyellow;
-    border: 3px solid rgb(182, 182, 31);
-    padding: 10px 30px;
-    margin-bottom: 30px;
+.col {
+  border: 2px;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
 }
 
-div.col {
-    border: 2px;
-    padding: 5px;
-    margin: 5px;
+.mealtype {
+  margin-bottom: 15px;
+  text-decoration: underline;
 }
 
-div.perm {
-    background-color: white;
-    border-color: #f1f1f136;
-    width: 80%;
-}
-
-div.col div.edit {
-    background-color: white;
-    border: 1px dotted gray;
-    margin: 5px;
-    overflow: auto;
+.col .edit {
+  background-color: white;
+  border: 1px dotted gray;
+  font-size: 1rem;
+  margin: 5px;
+  padding: 10px;
+  overflow: auto;
+  text-align: left;
+  word-break: break-all;
 }
 
 div.col div.edit-lg {
-    height: 50px;
-}
-
-.btn {
-    background-color: white;
-    border: 3px solid gray;
-}
-
-.btn-primary {
-    margin-top: 10px;
-}
-
-.btn-light {
-    display: block;
-    margin: auto;
+  height: 50px;
 }
 
 .recipe-link {
-    color: lightgray;
+  color: lightgray;
+}
+
+button.save {
+  display: block;
+  margin: 0 auto;
+}
+
+.ingredients, #edit-page {
+  background-color: lightyellow;
+  border: 3px solid rgb(182, 182, 31);
+  overflow: auto;
+}
+
+.ingredients {
+  position: fixed;
+  right: 0;
+  margin-top: 15px;
+  margin-right: 0;
+  height: 80%;
+  width: 25%;
+}
+
+#edit-page {
+  height: 100%;
+  max-width: 800px;
+  margin: auto;
+  width: 80%;
+}
+
+.list-title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: #036950;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.ingredients input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  max-width: 200px;
+  padding: 15px 5px;
+  overflow: auto;
+}
+
+button.add-item {
+  padding: 8px 15px;
+}
+
+.ing-list {
+  margin: 10px;
+  padding: 0;
+}
+
+.ing-list li {
+  background-color: lightyellow;
+  display: block;
+  width: 70%;
+  border: 1px dashed green;
+  padding: 5px;
+  margin: 5px auto;
+  max-width: 300px;
+  overflow: auto;
+}
+
+
+.material-icons {
+  font-size: 1rem;
+  float: right;
+}
+
+span.material-icons.delete:hover {
+  cursor: pointer;
 }
 
 p.error {
-    color: red;
+  color: red;
 }
 
+footer {
+  color: #aaaaaa;
+  margin: 20px auto;
+  text-align: center;
+}

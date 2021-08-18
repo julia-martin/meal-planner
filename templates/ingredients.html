@@ -5,35 +5,40 @@
 {% endblock %}
 
 {% block main %}
-<a href='/'>Back to meal plan</a>
+<a href='/' class='back'>Back to meal plan</a>
 
-<div class='ingredients' id='edit-page'>
-    <h5 class='list-title'>Ingredients I Have</h5>
-    <form action='/ingredients' method='post'>
-        <input class='form-control add-item' autocomplete='off' name='addItem' placeholder='Add Ingredient'>
-        <button class='btn' type='submit'>Add</button>
-    </form>
-    {% for ingredient in ingredients %}
+<div id='edit-page'>
+  <h3 class='list-title'>Ingredients I Have</h3>
+  <form action='/ingredients' method='post'>
+    <input class='form-control' autocomplete='off' name='addItem' placeholder='Add Ingredient'>
+    <button class='add-item' type='submit'>Add</button>
+  </form>
+  {% for ingredient in ingredients %}
     <ul class='ing-list'>
-        <li class='ing'><span>{{ ingredient }}</span>
-            <span class="material-icons delete">cancel</span>
-        </li>
+      <li>
+        <span class='ing-name'>{{ ingredient }}</span>
+        <span class="material-icons delete">cancel</span>
+      </li>
     </ul>
-    {% endfor %}
+  {% endfor %}
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $('.delete').on('click', function(event){
-        $.ajax({
-            type: 'POST',
-            url: '/ingredients',
-            data: JSON.stringify({ 'delete': $(event.target).prev().text() }),
-            success: function() { $(event.target).parent().remove(); },
-            contentType: 'application/json',
-            dataType: 'json'
-        });
-        $(event.target).parent().fadeOut();
+  let deleteBtns = document.querySelectorAll('.delete');
+
+  function onDelete(e) {
+    let data = { 'delete': this.previousElementSibling.textContent };
+    fetch('/ingredients', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (response.ok) this.parentElement.remove();
     });
+  }
+
+  deleteBtns.forEach(btn => btn.addEventListener('click', onDelete));
 </script>
 {% endblock %}
